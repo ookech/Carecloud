@@ -1,6 +1,11 @@
-from django.shortcuts import render,redirect,get_object_or_404
+from django.shortcuts import render,redirect,get_object_or_404,HttpResponse
+from .models import Transaction
+import requests
+from requests.auth import HTTPBasicAuth
+from careapp.models import  MyAppoinments
+import json
+from .credentials import MpesaAccessToken, LipanaMpesaPpassword
 
-from careapp.models import *
 
 
 # Create your views here.
@@ -191,3 +196,9 @@ def transactions_list(request):
     transactions = Transaction.objects.filter(status="Success").order_by('-date')
     return render(request, 'transactions.html', {'transactions': transactions})
 
+
+def register(request):
+    return render(request, 'register.html')
+
+def login(request):
+    return render(request, 'login.html')

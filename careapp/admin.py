@@ -6,3 +6,4 @@ from careapp.models import *
 admin.site.register(MyAppoinments)
 admin.site.register(Doctor)
 admin.site.register(Patients)
+admin.site.register(Transaction)
